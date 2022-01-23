@@ -1,14 +1,7 @@
-import requests
-from lxml import html
 import re
+import domains
 
-# DEBUG CODE
-def write_debug(content):
-    with open('debug.txt', 'w') as log:
-        log.write(content)
-# DEBUG CODE
-
-# Deze functie is verantwoordelijk voor het ophalen van alle product URLs
+# Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
     with open('products.txt', 'r') as products:
@@ -18,7 +11,6 @@ def read_products():
     return watchlist
 
 # Deze functie maakt onderscheid tussen de domeinnamen
-def domain_sorter(watchlist):
-    domain = re.findall('https?://([A-Za-z_0-9.-]+).*', watchlist[1])
-    print(domain)
-
+def domain_sorter(url):
+    domain_raw = re.findall('https?://([A-Za-z_0-9.-]+).*', url)
+    domain = domain_raw[0]
