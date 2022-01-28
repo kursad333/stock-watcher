@@ -19,8 +19,11 @@ def domain_sorter(url):
     domain_raw = re.findall('https?://([A-Za-z_0-9.-]+).*', url)
     domain = domain_raw[0]
 
+    # Semi switch-case
     if domain == 'azerty.nl':
         return handler.check_azerty(url)
+    if domain == 'www.alternate.nl':
+        return handler.check_alternate(url)
 
 
 if __name__ == '__main__':

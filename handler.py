@@ -27,7 +27,22 @@ def check_azerty(link):
 
 
 def check_alternate(link):
-    pass
+    result = []
+
+    page = requests.get(link)
+    tree = html.fromstring(page.content)
+
+    name = tree.xpath('//*[@id="product-top"]/div[1]/div[2]/div/h1/span[2]')[0].text_content()
+    result.append(name)
+
+    stock = tree.xpath('//*[@id="add-to-cart-form"]/div[1]/div/span/b')[0].text_content()
+
+    if 'Niet' not in stock:
+        result.append(True)
+    else:
+        result.append(False)
+
+    return result
 
 
 def check_amazonNL(link):
