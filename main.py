@@ -26,8 +26,31 @@ def domain_sorter(url):
         return handler.check_alternate(url)
 
 
+def set_interval():
+    valid = False
+    update_interval = 0
+
+    while not valid:
+        try:
+            update_interval = float(input("Voer update-interval in minuten"))
+            valid = True
+        except:
+            print("Invoer onjuist, probeer het opnieuw.")
+
+    return update_interval
+
+
 if __name__ == '__main__':
     watchlist = read_products()
 
-    for item in watchlist:
-        domain_sorter(item)
+    update_interval = set_interval()
+    count = 0
+
+    while True:
+        for item in watchlist:
+            print(domain_sorter(item))
+
+            count = count + 1
+            if len(watchlist) == count:
+                time.sleep(update_interval)
+                count = 0
