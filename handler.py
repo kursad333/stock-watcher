@@ -54,7 +54,24 @@ def check_amazonDE(link):
 
 
 def check_mediamarkt(link):
-    pass
+    result = []
+
+    page = requests.get(link)
+    writedebug(str(page.text))
+
+    tree = html.fromstring(page.text)
+
+    name = tree.xpath('/html/head/meta[17]/@content')[0]
+    result.append(name)
+
+    stock = tree.xpath('//*[@id="product-details"]/div[3]/div[1]/div[3]/ul/li[3]/span')[0].text_content()
+
+    if 'uitverkocht' not in stock:
+        result.append(True)
+    else:
+        result.append(False)
+
+    return result
 
 
 def check_sicomputers(link):
