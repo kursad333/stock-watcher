@@ -3,10 +3,11 @@ import handler
 import datetime
 import time
 
+
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
-    with open('dev.txt', 'r') as products:
+    with open('products.txt', 'r') as products:
         for product in products:
             product = product.strip('\n')  # verwijdert alle spaties
             watchlist.append(product)
@@ -52,7 +53,11 @@ if __name__ == '__main__':
 
     while True:
         for item in watchlist:
-            print(domain_sorter(item))
+            result = domain_sorter(item)
+
+            curr_time = datetime.datetime.now().strftime('%d-%b [%X]')
+
+            print(f'{curr_time} - {result[0]} {result[2]} - {result[1]}  ')
 
             count = count + 1
             if len(watchlist) == count:

@@ -5,13 +5,9 @@ headers = {
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
 
 
-def writedebug(content):
-    with open('debug.html', 'w') as log:
-        log.write(content)
-
-
 def check_azerty(link):
     result = []
+    result.append('Azerty.nl')
 
     page = requests.get(link)
     tree = html.fromstring(page.content)
@@ -22,15 +18,16 @@ def check_azerty(link):
     stock = tree.xpath('//*[@id="detail"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/text()')
 
     if stock[0].split()[0] != '0':
-        result.append(True)
+        result.append("OP VOORRAAD")
     else:
-        result.append(False)
+        result.append("UITVERKOCHT")
 
     return result
 
 
 def check_alternate(link):
     result = []
+    result.append('Alternate.nl')
 
     page = requests.get(link)
     tree = html.fromstring(page.content)
@@ -41,15 +38,16 @@ def check_alternate(link):
     stock = tree.xpath('//*[@id="add-to-cart-form"]/div[1]/div/span/b')[0].text_content()
 
     if 'Niet' not in stock:
-        result.append(True)
+        result.append("OP VOORRAAD")
     else:
-        result.append(False)
+        result.append("UITVERKOCHT")
 
     return result
 
 
 def check_mediamarkt(link):
     result = []
+    result.append('MediaMarkt.nl')
 
     page = requests.get(link)
     tree = html.fromstring(page.text)
@@ -60,15 +58,16 @@ def check_mediamarkt(link):
     stock = tree.xpath('//*[@id="product-details"]/div[3]/div[1]')[0].text_content()
 
     if 'uitverkocht' not in stock:
-        result.append(True)
+        result.append("OP VOORRAAD")
     else:
-        result.append(False)
+        result.append("UITVERKOCHT")
 
     return result
 
 
 def check_sicomputers(link):
     result = []
+    result.append('SiComputers.nl')
 
     page = requests.get(link)
     tree = html.fromstring(page.content)
@@ -81,18 +80,18 @@ def check_sicomputers(link):
         '/html/body/div[4]/main/div/div/div[2]/div[3]/div[1]/div/div/div[1]/div[2]/div/div[5]/div/div[1]/text()')
 
     if len(stock) == 0:
-        result.append(True)
+        result.append("OP VOORRAAD")
     else:
-        result.append(False)
+        result.append("UITVERKOCHT")
 
     return result
 
 
 def check_proshop(link):
     result = []
+    result.append('ProShop.nl')
 
     page = requests.get(link)
-    writedebug(str(page.content))
     tree = html.fromstring(page.content)
 
     name = tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[2]/h1')[0].text_content()
@@ -101,8 +100,8 @@ def check_proshop(link):
     try:
         tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[2]/div[2]/div[5]/div/div[2]')[0] \
             .text_content()
-        result.append(True)
+        result.append("OP VOORRAAD")
     except:
-        result.append(False)
+        result.append("UITVERKOCHT")
 
     return result
