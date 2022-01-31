@@ -48,14 +48,6 @@ def check_alternate(link):
     return result
 
 
-def check_amazonNL(link):
-    pass
-
-
-def check_amazonDE(link):
-    pass
-
-
 def check_mediamarkt(link):
     result = []
 
