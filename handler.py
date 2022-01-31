@@ -76,7 +76,24 @@ def check_mediamarkt(link):
 
 
 def check_sicomputers(link):
-    pass
+    result = []
+
+    page = requests.get(link)
+    tree = html.fromstring(page.content)
+
+    name = tree.xpath('/html/body/div[4]/main/div/div/div[2]/div[3]/div[1]/div/div/div[1]/div[1]/div[1]/h1/span')[
+        0].text_content()
+    result.append(name)
+
+    stock = tree.xpath(
+        '/html/body/div[4]/main/div/div/div[2]/div[3]/div[1]/div/div/div[1]/div[2]/div/div[5]/div/div[1]/text()')
+
+    if len(stock) == 0:
+        result.append(True)
+    else:
+        result.append(False)
+
+    return result
 
 
 def check_proshop(link):
