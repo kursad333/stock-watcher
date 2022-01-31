@@ -57,7 +57,7 @@ def check_mediamarkt(link):
     name = tree.xpath('/html/head/meta[17]/@content')[0]
     result.append(name)
 
-    stock = tree.xpath('//*[@id="product-details"]/div[3]/div[1]/div[3]/ul/li[3]/span')[0].text_content()
+    stock = tree.xpath('//*[@id="product-details"]/div[3]/div[1]')[0].text_content()
 
     if 'uitverkocht' not in stock:
         result.append(True)

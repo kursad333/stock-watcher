@@ -3,7 +3,6 @@ import handler
 import datetime
 import time
 
-
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
@@ -37,7 +36,7 @@ def set_interval():
 
     while not valid:
         try:
-            update_interval = float(input("Voer update-interval in minuten"))
+            update_interval = float(input("Voer update-interval in minuten")) * 60
             valid = True
         except:
             print("Invoer onjuist, probeer het opnieuw.")
