@@ -25,6 +25,8 @@ def domain_sorter(url):
         return handler.check_alternate(url)
     if domain == 'www.mediamarkt.nl':
         return handler.check_mediamarkt(url)
+    if domain == 'www.informatique.nl':
+        return handler.check_informatique(url)
 
 
 def set_interval():

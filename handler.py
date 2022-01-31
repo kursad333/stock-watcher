@@ -1,6 +1,9 @@
 import requests
 from lxml import html
 
+headers = {
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+
 
 def writedebug(content):
     with open('debug.html', 'w') as log:
@@ -57,8 +60,6 @@ def check_mediamarkt(link):
     result = []
 
     page = requests.get(link)
-    writedebug(str(page.text))
-
     tree = html.fromstring(page.text)
 
     name = tree.xpath('/html/head/meta[17]/@content')[0]
@@ -75,10 +76,6 @@ def check_mediamarkt(link):
 
 
 def check_sicomputers(link):
-    pass
-
-
-def check_informatique(link):
     pass
 
 
