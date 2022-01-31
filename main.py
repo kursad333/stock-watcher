@@ -7,7 +7,7 @@ import time
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
-    with open('products.txt', 'r') as products:
+    with open('dev.txt', 'r') as products:
         for product in products:
             product = product.strip('\n')  # verwijdert alle spaties
             watchlist.append(product)
