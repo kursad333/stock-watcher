@@ -4,6 +4,9 @@ import datetime
 import time
 
 
+# WET & DRY
+
+
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
