@@ -97,4 +97,20 @@ def check_sicomputers(link):
 
 
 def check_proshop(link):
-    pass
+    result = []
+
+    page = requests.get(link)
+    writedebug(str(page.content))
+    tree = html.fromstring(page.content)
+
+    name = tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[2]/h1')[0].text_content()
+    result.append(name)
+
+    try:
+        tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[2]/div[2]/div[5]/div/div[2]')[0] \
+            .text_content()
+        result.append(True)
+    except:
+        result.append(False)
+
+    return result

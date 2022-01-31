@@ -27,6 +27,8 @@ def domain_sorter(url):
         return handler.check_mediamarkt(url)
     if domain == 'www.sicomputers.nl':
         return handler.check_sicomputers(url)
+    if domain == 'www.proshop.nl':
+        return handler.check_proshop(url)
 
 
 def set_interval():
@@ -45,6 +47,7 @@ def set_interval():
 
 if __name__ == '__main__':
     watchlist = read_products()
+
     update_interval = set_interval()
     count = 0
 
