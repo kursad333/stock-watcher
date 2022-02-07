@@ -2,9 +2,6 @@ import requests
 from lxml import html
 import telegram_bot
 
-headers = {
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
-
 
 def check_azerty(link):
     result = []
@@ -16,6 +13,7 @@ def check_azerty(link):
     name = tree.xpath('/html/body/div[2]/div/div/div/div/div[2]/div/div/div[1]/div/h1')[0].text_content()
     result.append(name)
 
+    # Fixed element for stock information
     stock = tree.xpath('//*[@id="detail"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/text()')
 
     if stock[0].split()[0] != '0':
@@ -37,6 +35,7 @@ def check_alternate(link):
     name = tree.xpath('//*[@id="product-top"]/div[1]/div[2]/div/h1/span[2]')[0].text_content()
     result.append(name)
 
+    # Fixed location for stock information
     stock = tree.xpath('//*[@id="add-to-cart-form"]/div[1]/div/span/b')[0].text_content()
 
     if 'Niet' not in stock:
@@ -58,6 +57,7 @@ def check_mediamarkt(link):
     name = tree.xpath('/html/head/meta[17]/@content')[0]
     result.append(name)
 
+    # Mediamarkt stock information differs per page
     stock = tree.xpath('//*[@id="product-details"]/div[3]/div[1]')[0].text_content()
 
     if 'uitverkocht' not in stock:
@@ -80,6 +80,7 @@ def check_sicomputers(link):
         0].text_content()
     result.append(name)
 
+    # Proshop uses fixed location if product is in stock
     stock = tree.xpath(
         '/html/body/div[4]/main/div/div/div[2]/div[3]/div[1]/div/div/div[1]/div[2]/div/div[5]/div/div[1]/text()')
 
@@ -102,6 +103,7 @@ def check_proshop(link):
     name = tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[1]/div[2]/h1')[0].text_content()
     result.append(name)
 
+    # Proshop uses fixed location if product is in stock
     try:
         tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[2]/div[2]/div[5]/div/div[2]')[0] \
             .text_content()

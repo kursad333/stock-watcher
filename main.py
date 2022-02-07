@@ -6,7 +6,6 @@ import time
 
 # WET & DRY
 
-
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
@@ -34,6 +33,7 @@ def domain_sorter(url):
         return handler.check_proshop(url)
 
 
+# Deze functie is verantwoordelijk voor de update-interval in te stellen door de gebruiker
 def set_interval():
     valid = False
     update_interval = 0
@@ -49,20 +49,23 @@ def set_interval():
 
 
 if __name__ == '__main__':
+    # Haal alle URLs uit product.txt
     watchlist = read_products()
 
+    # Set interval van gebruiker
     update_interval = set_interval()
     count = 0
 
     while True:
         for item in watchlist:
             result = domain_sorter(item)
-
             curr_time = datetime.datetime.now().strftime('%d-%b [%X]')
 
+            # Alle opgehaalde data wordt hierin weergegeven
             print(f'{curr_time} - {result[0]} {result[2]} - {result[1]}  ')
 
             count = count + 1
+
             if len(watchlist) == count:
                 time.sleep(update_interval)
                 count = 0
