@@ -10,12 +10,15 @@ import time
 def read_products():
     watchlist = []
     with open('products.txt', 'r') as products:
-        for product in products:
-            product = product.strip('\n')  # verwijdert alle spaties
+        for line in products:
+            line = line.strip('\n')  # verwijdert alle spaties
 
-            # filtert lege regels eruit
-            if len(product) > 0:
-                watchlist.append(product)
+            # controleert of line niet leeg is
+            if len(line) > 0:
+                # controleert of line wel een URL is
+                domain_raw = re.findall('https?://([A-Za-z_0-9.-]+).*', line)
+                if bool(domain_raw):
+                    watchlist.append(line)
             else:
                 pass
 
@@ -26,6 +29,7 @@ def read_products():
 def domain_sorter(url):
     domain_raw = re.findall('https?://([A-Za-z_0-9.-]+).*', url)
     domain = domain_raw[0]
+
     # Semi switch-case
     if domain == 'azerty.nl':
         return handler.check_azerty(url)
@@ -37,6 +41,8 @@ def domain_sorter(url):
         return handler.check_sicomputers(url)
     if domain == 'www.proshop.nl':
         return handler.check_proshop(url)
+    else:
+        return [domain]
 
 
 # Deze functie is verantwoordelijk voor de update-interval in te stellen door de gebruiker
@@ -69,7 +75,10 @@ if __name__ == '__main__':
             curr_time = datetime.datetime.now().strftime('%d-%b [%X]')
 
             # Alle opgehaalde data wordt hierin weergegeven
-            print(f'{curr_time} - {result[0]} {result[2]} - {result[1]}  ')
+            if len(result) == 3:
+                print(f'{curr_time} - {result[0]} {result[2]} - {result[1]}  ')
+            else:
+                print(f'{curr_time} - {result[0]} not supported')
 
             count = count + 1
 
