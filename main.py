@@ -12,7 +12,13 @@ def read_products():
     with open('products.txt', 'r') as products:
         for product in products:
             product = product.strip('\n')  # verwijdert alle spaties
-            watchlist.append(product)
+
+            # filtert lege regels eruit
+            if len(product) > 0:
+                watchlist.append(product)
+            else:
+                pass
+
     return watchlist
 
 
@@ -49,6 +55,7 @@ def set_interval():
 
 
 if __name__ == '__main__':
+
     # Haal alle URLs uit product.txt
     watchlist = read_products()
 
