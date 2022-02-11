@@ -1,22 +1,37 @@
+Elke url heeft bewust een andere voorraad status om de betrouwbaarheid te testen
 
-https://www.proshop.nl/Grafische-kaarten/GIGABYTE-NVIDIA-GeForce-RTX-3060-AORUS-Elite-LHR-12GB-GDDR6-RAM-Grafische-kaarten/2962506
-dnunwehdhwefhefhbef
-https://www.proshop.nl/Grafische-kaarten/GIGABYTE-GeForce-RTX-3050-EAGLE-8GB-GDDR6-RAM-Grafische-kaarten/3029571
-http://google.com
+https://azerty.nl/product/samsung/4476665/980-1-tb-solid-state-drive-m-2-2280
+https://azerty.nl/product/gigabyte/4438601/radeon-rx-6900-xt-gaming-oc-16g-videokaart-16-gb-gddr6
+https://azerty.nl/product/asus/4637200/geforce-gt-730-videokaart-2-gddr5
+https://azerty.nl/product/gigabyte/4669985/geforce-rtx-3080-eagle-12g-videokaart-12-gb-gddr6x
+https://azerty.nl/product/asus/4535283/tuf-gaming-geforce-rtx-3070-ti-oc-edition-videokaart-8-gb-gddr6x
 
-https://stackoverflow.com/questions/6576962/python-regular-expressions-return-true-false
-https://twitter.com/home
 
-https://leaked.cx/threads/ranking-every-kanye-west-song.60845/dsddsa
-http;//djskfnje.se
+https://www.alternate.nl/html/product/1818165
+https://www.alternate.nl/PNY/GeForce-RTX-3080-12GB-XLR8-Gaming-REVEL-EPIC-X-RGB-LHR-grafische-kaart/html/product/1819033
+https://www.alternate.nl/MSI/GeForce-RTX-3090-GAMING-X-TRIO-24G-grafische-kaart/html/product/1672341
+https://www.alternate.nl/Intel/Core-i9-10900X-3-7-GHz-(4-5-GHz-Turbo-Boost)-socket-2066-processor/html/product/1584589
 
-http://com
-http://dsadkjdnj2d
-aapje.com
+https://www.mediamarkt.nl/nl/product/_apple-iphone-13-128-gb-middernacht-5g-1707514.html
+https://www.mediamarkt.nl/nl/product/_acer-swift-1-sf114-34-c2c5-1699199.html
+https://www.mediamarkt.nl/nl/product/_apple-macbook-pro-13-2020-spacegrijs-i5-16gb-512gb-1661305.html
+https://www.mediamarkt.nl/nl/product/_nvidia-shield-tv-1546573.html
 
-dwdwdwdwedwed
-banaan.com
+https://www.sicomputers.nl/asus-phoenix-ph-rtx3050-8g-nvidia-geforce-rtx-3050-8-gb-gddr6-id-841344.html?sqr=3050
+https://www.sicomputers.nl/apple-macbook-air-notebook-33-8-cm-13-3-apple-m-8-gb-256-gb-ssd-wi-fi-6-802-11ax-macos-big-sur-grijs-id-829208.html
+https://www.sicomputers.nl/pny-vcg3080t12tfxppb-videokaart-nvidia-geforce-rtx-3080-ti-12-gb-gddr6x-id-824918.html?sqr=rtx%203080
+https://www.sicomputers.nl/asus-cerberus-gtx1050ti-o4g-nvidia-geforce-gtx-1050-ti-4-gb-gddr5-id-827640.html?sqr=gtx%2010
 
-https://nl.hardware.info/draadloze-speakersstreamers.117/philips-taw8506.615622
 
-https://tweakers.net/downloads/59290/exiftool-1240.html
+https://www.proshop.nl/Grafische-kaarten/MSI-GeForce-RTX-3050-GAMING-X-8GB-GDDR6-RAM-Grafische-kaarten/3029577
+https://www.proshop.nl/Grafische-kaarten/GIGABYTE-NVIDIA-GeForce-RTX-3060-Ti-GAMING-OC-PRO-LHR-8GB-GDDR6-RAM-Grafische-kaarten/2994434
+https://www.proshop.nl/Grafische-kaarten/ASUS-Radeon-RX-6600-XT-ROG-STRIX-OC-8GB-GDDR6-RAM-Grafische-kaarten/2978913
+https://www.proshop.nl/Grafische-kaarten/PowerColor-Radeon-RX-6500-XT-Fighter-4GB-GDDR6-RAM-Grafische-kaarten/3032054
+https://www.proshop.nl/Grafische-kaarten/ASUS-NVIDIA-GeForce-RTX-3080-ROG-STRIX-OC-V2-LHR-12GB-GDDR6X-RAM-Grafische-kaarten/3026569
+
+
+URLS for testing list sanitizing
+https://tweakers.net/nieuws/193152/kioxia-waarschuwt-klanten-voor-3d-nandtekorten-vanaf-april-door-vervuiling.html
+https://nl.hardware.info/nieuws/80625/benchmarkprestaties-i9-13900k-samples-lopen-op-nu-gelijk-aan-12900k
+https://www.oanda.com/currency-converter/en/?from=EUR&to=USD&amount=1
+https://www.habbo.com.tr/

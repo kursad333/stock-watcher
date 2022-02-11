@@ -71,14 +71,21 @@ if __name__ == '__main__':
 
     while True:
         for item in watchlist:
-            result = domain_sorter(item)
             curr_time = datetime.datetime.now().strftime('%d-%b [%X]')
 
-            # Alle opgehaalde data wordt hierin weergegeven
+            # Haalt het item op
+            result = domain_sorter(item)
+
+            # Alle opgehaalde gegevens worden in deze loop weergegeven
+            # Succesvolle transactie
+            if len(result) > 3:
+                if result[0]:
+                    print(f'{curr_time} - {result[3]} | {result[1]}: {result[2]}  ')
+                if not result[0]:
+                    print(f'{curr_time} - {result[1]} | {result[3]} - {result[2]}')
+            # Mislukte transactie
             if len(result) == 3:
-                print(f'{curr_time} - {result[0]} {result[2]} - {result[1]}  ')
-            else:
-                print(f'{curr_time} - {result[0]} not supported')
+                print(f'{curr_time} - {result[1]} | {result[2]}')
 
             count = count + 1
 
