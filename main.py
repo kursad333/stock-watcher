@@ -67,8 +67,8 @@ if __name__ == '__main__':
 
     # Set interval van gebruiker
     update_interval = set_interval()
-    count = 0
 
+    count = 0
     while True:
         for item in watchlist:
             curr_time = datetime.datetime.now().strftime('%d-%b [%X]')

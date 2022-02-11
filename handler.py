@@ -2,6 +2,8 @@ import requests
 from lxml import html
 import telegram_bot
 
+telegram_connection = telegram_bot.check_creds()
+
 
 def validate_response(url):
     result, req = [], ''
@@ -39,7 +41,7 @@ def check_azerty(link):
 
             if stock[0].split()[0] != '0' or 'niet' not in stockExt[0].text_content():
                 result.append("OP VOORRAAD")
-                telegram_bot.sendMsg(link)
+                if telegram_connection: telegram_bot.sendMsg(link)
             else:
                 result.append("UITVERKOCHT")
 
@@ -69,7 +71,7 @@ def check_alternate(link):
 
             if 'Niet' not in stock:
                 result.append("OP VOORRAAD")
-                telegram_bot.sendMsg(link)
+                if telegram_connection: telegram_bot.sendMsg(link)
             else:
                 result.append("UITVERKOCHT")
 
@@ -100,7 +102,7 @@ def check_mediamarkt(link):
 
             if 'uitverkocht' not in stock:
                 result.append("OP VOORRAAD")
-                telegram_bot.sendMsg(link)
+                if telegram_connection: telegram_bot.sendMsg(link)
             else:
                 result.append("UITVERKOCHT")
 
@@ -136,7 +138,7 @@ def check_sicomputers(link):
 
             if len(stock) == 0:
                 result.append("OP VOORRAAD")
-                telegram_bot.sendMsg(link)
+                if telegram_connection: telegram_bot.sendMsg(link)
             else:
                 result.append("UITVERKOCHT")
 
@@ -167,7 +169,7 @@ def check_proshop(link):
                 tree.xpath('/html/body/div[5]/div/div[2]/div[1]/div[2]/div/div/div[2]/div[2]/div[5]/div/div[2]')[0] \
                     .text_content()
                 result.append("OP VOORRAAD")
-                telegram_bot.sendMsg(link)
+                if telegram_connection: telegram_bot.sendMsg(link)
             except:
                 result.append("UITVERKOCHT")
 
