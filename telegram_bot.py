@@ -4,10 +4,10 @@ import datetime
 # Stuur een bericht naar 'https://t.me/botfather' om een bot aan te maken en een token te verkrijgen
 # Stuur een bericht naar 'https://t.me/get_id_bot' om je user id te verkrijgen
 
-# Insert token here
+# Voer de token hier in
 token = ''
 
-# Insert user_id here
+# Voer de user_id hier in
 user_id = ''
 
 

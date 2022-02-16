@@ -4,11 +4,10 @@ import datetime
 import time
 
 
-# WET & DRY
-
 # Deze functie is verantwoordelijk voor het ophalen van alle product URLs uit products.txt
 def read_products():
     watchlist = []
+
     with open('products.txt', 'r') as products:
         for line in products:
             line = line.strip('\n')  # verwijdert alle spaties
@@ -60,8 +59,7 @@ def set_interval():
     return update_interval
 
 
-if __name__ == '__main__':
-
+def main():
     # Haal alle URLs uit product.txt
     watchlist = read_products()
 
@@ -75,6 +73,7 @@ if __name__ == '__main__':
 
             # Haalt het item op
             result = domain_sorter(item)
+            # print(result)
 
             # Alle opgehaalde gegevens worden in deze loop weergegeven
             # Succesvolle transactie
@@ -86,9 +85,15 @@ if __name__ == '__main__':
             # Mislukte transactie
             if len(result) == 3:
                 print(f'{curr_time} - {result[1]} | {result[2]}')
+            # Niet ondersteunde url
+            if len(result) == 1:
+                print(f'{curr_time} - {result[0]} niet ondersteund')
 
             count = count + 1
-
             if len(watchlist) == count:
                 time.sleep(update_interval)
                 count = 0
+
+
+if __name__ == '__main__':
+    main()

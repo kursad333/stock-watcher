@@ -5,7 +5,7 @@ import telegram_bot
 telegram_connection = telegram_bot.check_creds()
 
 
-def validate_response(url):
+def verify_connection(url):
     result, req = [], ''
 
     try:
@@ -15,7 +15,7 @@ def validate_response(url):
             result.append(req)
         else:
             result.append(False)
-            result.append('Website onbereikbaar, probeer het later opnieuw.')
+            result.append('Opgevraagde pagina onbereikbaar, probeer het later opnieuw.')
     except:
         result.append(False)
         result.append('Geen actieve internetverbinding gevonden, probeer het later opnieuw.')
@@ -25,7 +25,7 @@ def validate_response(url):
 
 def check_azerty(link):
     result = ['Azerty.nl']
-    response = validate_response(link)
+    response = verify_connection(link)
 
     if response[0]:
         try:
@@ -58,7 +58,7 @@ def check_azerty(link):
 
 def check_alternate(link):
     result = ['Alternate.nl']
-    response = validate_response(link)
+    response = verify_connection(link)
 
     if response[0]:
         try:
@@ -88,7 +88,7 @@ def check_alternate(link):
 
 def check_mediamarkt(link):
     result = ['MediaMarkt.nl']
-    response = validate_response(link)
+    response = verify_connection(link)
 
     if response[0]:
         try:
@@ -121,7 +121,7 @@ def check_mediamarkt(link):
 
 def check_sicomputers(link):
     result = ['SiComputers.nl']
-    response = validate_response(link)
+    response = verify_connection(link)
 
     if response[0]:
         try:
@@ -152,10 +152,9 @@ def check_sicomputers(link):
 
     return result
 
-
 def check_proshop(link):
     result = ['ProShop.nl']
-    response = validate_response(link)
+    response = verify_connection(link)
 
     if response[0]:
         try:
